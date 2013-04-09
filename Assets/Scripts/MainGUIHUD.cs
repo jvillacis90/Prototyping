@@ -5,6 +5,8 @@ using System.Collections;
 public class MainGUIHUD : MonoBehaviour 
 {
 	
+	PlayerAttributes playerA;
+	
 public healthBar healthObj;
 public powerBar power;
 	
@@ -16,7 +18,7 @@ public Texture2D healthTex;
 	// Use this for initialization
 	void Start () 
 	{
-		
+		playerA = PlayerAttributes.GetInstance();
 		if(!healthObj)
 		{
 			healthObj = GameObject.FindGameObjectWithTag("Player").GetComponent<healthBar>();
@@ -44,7 +46,7 @@ public Texture2D healthTex;
 		GUI.Box ();
 		*/
 		Rect rect = new Rect(0,0,Screen.width/3, Screen.height/10);
-		GUI.Button(rect, "HEALTH BAR");	
+		GUI.Button(rect, playerA._health.ToString());	
 		rect.y += rect.height;
 		GUI.Button (rect, "Power Bar");
 		
