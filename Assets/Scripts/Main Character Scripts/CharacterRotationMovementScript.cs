@@ -15,6 +15,8 @@ public class CharacterRotationMovementScript : MonoBehaviour {
 	float mousePosX;
 	float mousePosY;
 	
+	bool stopRotating = false;
+	
 	void Start()
 	{
 		moveField = new Rect(left,right, Screen.width - paddingWidth, Screen.height - paddingHeight);
@@ -22,15 +24,21 @@ public class CharacterRotationMovementScript : MonoBehaviour {
 	
 	void Update()
 	{
-		mousePosX = Input.mousePosition.x - 50; 
-		mousePosY = (Screen.height - Input.mousePosition.y)-50;
+		if(Input.GetKeyDown(KeyCode.Q))
+		{stopRotating = true;}
 		
-		if(!moveField.Contains(new Vector2(mousePosX, mousePosY)))
+		if(!stopRotating)
 		{
-			if(mousePosX < Screen.width/2)
-				this.transform.Rotate(new Vector3(0,-turnSpeed,0));
-			else if(mousePosX> Screen.width/2)
-				this.transform.Rotate(new Vector3(0,turnSpeed,0));
+			mousePosX = Input.mousePosition.x - 50; 
+			mousePosY = (Screen.height - Input.mousePosition.y)-50;
+			
+			if(!moveField.Contains(new Vector2(mousePosX, mousePosY)))
+			{
+				if(mousePosX < Screen.width/2)
+					this.transform.Rotate(new Vector3(0,-turnSpeed,0));
+				else if(mousePosX> Screen.width/2)
+					this.transform.Rotate(new Vector3(0,turnSpeed,0));
+			}
 		}
 	}
 	

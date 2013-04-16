@@ -25,7 +25,6 @@ public class ProjectileMovementScript : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision) {
-        Debug.Log("Here in collision enter on bullet");
 		if(collision.gameObject.tag == "Enemy")
 			Destroy(collision.gameObject);
 		Destroy(this.gameObject);
