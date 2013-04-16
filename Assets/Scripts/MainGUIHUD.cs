@@ -7,8 +7,8 @@ public class MainGUIHUD : MonoBehaviour
 	
 PlayerAttributes playerA;
 	
-public healthBar healthObj;
-public powerBar powerObj;
+healthBar healthObj;
+powerBar powerObj;
 	
 public Texture2D healthTex;
 public Texture2D powerTex;
@@ -44,9 +44,9 @@ public Texture2D powerTex;
 		
 		//Draw the power bar
 		Rect rect = new Rect(0,0,Screen.width/3, Screen.height/10);
-		GUI.Button(rect, healthTex, playerA._health.ToString());	
+		GUI.Button(rect, healthTex);	
 		rect.y += rect.height;
-		GUI.Button (rect, powerTex, playerA._energy.ToString());
+		GUI.Button (rect, powerTex);
 		rect.y += rect.height;
 		
 	}
