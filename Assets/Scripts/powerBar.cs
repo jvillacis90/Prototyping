@@ -8,13 +8,15 @@ public int beginPower;
 public int maxPower;
 public bool dead = false;
 	
-private Texture texture; //useful: texture.width, texture.height
-private Vector2 offset;
+private Texture powerTex; //useful: texture.width, texture.height
 
 
 	// Use this for initialization
 	void Start () 
 	{
+		
+		Texture2D powerTex = new Texture2D(128,128);
+		renderer.material.mainTexture = powerTex;
 		
 		maxPower = beginPower;
 	
@@ -28,12 +30,12 @@ private Vector2 offset;
 		
 	}
 	
-	/*void currentPower()
+	public int currentPower()
 	{
 		
 		return beginPower;
 		
-	}*/
+	}
 	
 	// Update is called once per frame
 	void Update () 

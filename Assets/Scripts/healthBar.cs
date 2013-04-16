@@ -11,12 +11,17 @@ public bool onHitDie = false;
 private float lastHit = 0.0f;
 public bool dead = false;
 	
-private Texture texture; //useful: texture.width, texture.height
-private Vector2 offset;
+public Texture healthTex; //useful: texture.width, texture.height
+//private Vector2 offset;
+	
+
 
 	// Use this for initialization
 	void Start ()
 	{
+		
+		Texture2D healthTex = new Texture2D(128,128);
+		renderer.material.mainTexture = healthTex;
 		
 		maxHealth = startHealth;
 	
@@ -30,12 +35,12 @@ private Vector2 offset;
 		
 	}
 	
-	/*void currentHealth()
+	public int currentHealth()
 	{
 	
-		//return startHealth;
+		return startHealth;
 		
-	}*/
+	}
 
 
 	void PlayerHit() 
