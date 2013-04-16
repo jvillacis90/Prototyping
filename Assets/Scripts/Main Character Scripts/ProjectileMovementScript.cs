@@ -13,7 +13,7 @@ public class ProjectileMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		deathTimer+= Time.deltaTime;
-		if(deathTimer > 2)
+		if(deathTimer > 1)
 			Destroy(this.gameObject);
 	}
 	
@@ -24,5 +24,10 @@ public class ProjectileMovementScript : MonoBehaviour {
 		this.rigidbody.AddForce(direction * speed);
 	}
 	
-	
+	void OnCollisionEnter(Collision collision) {
+        Debug.Log("Here in collision enter on bullet");
+		if(collision.gameObject.tag == "Enemy")
+			Destroy(collision.gameObject);
+		Destroy(this.gameObject);
+    }
 }
