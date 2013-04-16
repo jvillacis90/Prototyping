@@ -28,12 +28,12 @@ private Vector2 offset;
 		
 	}
 	
-	void currentPower()
+	/*void currentPower()
 	{
 		
 		return beginPower;
 		
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () 

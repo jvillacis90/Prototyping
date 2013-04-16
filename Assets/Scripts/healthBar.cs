@@ -30,12 +30,12 @@ private Vector2 offset;
 		
 	}
 	
-	void currentHealth()
+	/*void currentHealth()
 	{
 	
-		return startHealth;
+		//return startHealth;
 		
-	}
+	}*/
 
 
 	void PlayerHit() 

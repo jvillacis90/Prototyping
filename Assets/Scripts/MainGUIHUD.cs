@@ -30,7 +30,7 @@ public Texture2D healthTex;
 	void Update () 
 	{
 		
-		healthBar.texture(healthObj.currentHealth());
+		//healthBar.texture(healthObj.currentHealth());
 		
 	
 	}
