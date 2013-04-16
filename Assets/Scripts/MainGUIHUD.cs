@@ -5,13 +5,15 @@ using System.Collections;
 public class MainGUIHUD : MonoBehaviour 
 {
 	
-PlayerAttributes playerA;
+	PlayerAttributes playerA;
 	
 public healthBar healthObj;
-public powerBar powerObj;
+public powerBar power;
+	
+public Texture texture; //useful: texture.width, texture.height
+public Vector2 offset;
 	
 public Texture2D healthTex;
-public Texture2D powerTex;
 
 	// Use this for initialization
 	void Start () 
@@ -21,13 +23,6 @@ public Texture2D powerTex;
 		{
 			healthObj = GameObject.FindGameObjectWithTag("Player").GetComponent<healthBar>();
 		}
-		
-		playerA = PlayerAttributes.GetInstance();
-		if(!powerObj)
-		{
-			powerObj = GameObject.FindGameObjectWithTag("Player").GetComponent<powerBar>();
-		}
-		
 	
 	}
 	
@@ -35,19 +30,28 @@ public Texture2D powerTex;
 	void Update () 
 	{
 		
+		//healthBar.texture(healthObj.currentHealth());
+		
 	
 	}
 	
 	void OnGUI()
 	{
-
+		/*
+		//Draw the health bar
+		GUI.Box (Rect(healthObj.offset.x,
+				healthObj.offset.y,
+				healthObj.texture.width,
+				healthObj.texture.height),
+				healthObj.texture, noGuiStyle);
 		
 		//Draw the power bar
+		GUI.Box ();
+		*/
 		Rect rect = new Rect(0,0,Screen.width/3, Screen.height/10);
-		GUI.Button(rect, healthTex, playerA._health.ToString());	
+		GUI.Button(rect, playerA._health.ToString());	
 		rect.y += rect.height;
-		GUI.Button (rect, powerTex, playerA._energy.ToString());
-		rect.y += rect.height;
+		GUI.Button (rect, "Power Bar");
 		
 	}
 }
