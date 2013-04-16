@@ -4,8 +4,8 @@ using System.Collections;
 public class healthBar : MonoBehaviour
 {
 	
-public int startHealth = 4;
-public int maxHealth;
+public int startHealth = 100;
+public int maxHealth = 100;
 public bool destroyOnDeath = false;
 public bool onHitDie = false;
 private float lastHit = 0.0f;
@@ -27,6 +27,13 @@ private Vector2 offset;
 		
 		dead = false;
 		startHealth = maxHealth;
+		
+	}
+	
+	void currentHealth()
+	{
+	
+		return startHealth;
 		
 	}
 

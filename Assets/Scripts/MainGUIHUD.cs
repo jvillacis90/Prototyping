@@ -29,6 +29,9 @@ public Texture2D healthTex;
 	// Update is called once per frame
 	void Update () 
 	{
+		
+		healthBar.texture(healthObj.currentHealth());
+		
 	
 	}
 	
