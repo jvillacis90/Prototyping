@@ -28,6 +28,8 @@ public class ProjectileMovementScript : MonoBehaviour {
 		if(collision.gameObject.tag == "Enemy")
 		{
 			collision.gameObject.GetComponent<EnemyBaseClass>().ShowDeath();
+			if(collision.gameObject.name == "Enemy_Little")
+				collision.gameObject.GetComponent<EnemyBehaviourLittle>().shootCollisionBodies();
 			Destroy(collision.gameObject);
 		}
 		Destroy(this.gameObject);

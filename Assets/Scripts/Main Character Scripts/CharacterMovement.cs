@@ -54,6 +54,9 @@ public class CharacterMovement : MonoBehaviour {
     }
 	
 	void OnTriggerEnter(Collider other) {
-        Debug.Log(other.gameObject.name);
+        if(other.gameObject.tag == "DamageDealer")
+		{
+			playerA.takeDamage();
+		}
     }
 }

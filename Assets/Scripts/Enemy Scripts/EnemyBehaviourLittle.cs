@@ -16,6 +16,9 @@ public class EnemyBehaviourLittle : EnemyBaseClass {
 	
 	float finalPosY;
 	
+	public GameObject explosionDetectionObject;
+	
+	public GameObject test;
 	void Start () {
 		mainPlayerTarget = GameObject.FindGameObjectWithTag("Player");
 		SetDeathParticle(dParticle);
@@ -59,10 +62,33 @@ public class EnemyBehaviourLittle : EnemyBaseClass {
 			{
 				DestroyObject(this.gameObject);
 				Instantiate(explosion, this.transform.position, Quaternion.identity);
+				shootCollisionBodies();
 			}
 		}
 		
 	}
+	
+	public void shootCollisionBodies()
+	{
+		GameObject sphere = Instantiate(explosionDetectionObject,this.transform.position, Quaternion.identity) as GameObject;
+		sphere.GetComponent<ExplosionDetection>().setDirection(this.transform.position, this.transform.position + new Vector3(1,0,0));
+		
+		sphere = Instantiate(explosionDetectionObject,this.transform.position, Quaternion.identity) as GameObject;
+		sphere.GetComponent<ExplosionDetection>().setDirection(this.transform.position, this.transform.position + new Vector3(-1,0,0));
+		
+		sphere = Instantiate(explosionDetectionObject,this.transform.position, Quaternion.identity) as GameObject;
+		sphere.GetComponent<ExplosionDetection>().setDirection(this.transform.position, this.transform.position + new Vector3(0,0,1));
+		
+		sphere = Instantiate(explosionDetectionObject,this.transform.position, Quaternion.identity) as GameObject;
+		sphere.GetComponent<ExplosionDetection>().setDirection(this.transform.position, this.transform.position + new Vector3(0,0,-1));
+	}
+	
+	void OnTriggerEnter(Collider other) {
+		DestroyObject(this.gameObject);
+		Instantiate(explosion, this.transform.position, Quaternion.identity);
+		shootCollisionBodies();
+    }
+
 	/*
 	void OnCollisionEnter(Collision collision) {
 		Debug.Log(collision.gameObject.name);
