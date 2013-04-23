@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemyBehaviourLittle : MonoBehaviour {
+public class EnemyBehaviourLittle : EnemyBaseClass {
 	GameObject mainPlayerTarget;
 	public float force;
 	public float maxSpeed;
 	Vector3 direction;
 	
 	public GameObject explosion;
+	public GameObject dParticle;
 	bool keepTracking = true;
 	
 	float turnSpeed = 1;
@@ -17,6 +18,7 @@ public class EnemyBehaviourLittle : MonoBehaviour {
 	
 	void Start () {
 		mainPlayerTarget = GameObject.FindGameObjectWithTag("Player");
+		SetDeathParticle(dParticle);
 	}
 	
 	// Update is called once per frame
@@ -59,11 +61,16 @@ public class EnemyBehaviourLittle : MonoBehaviour {
 				Instantiate(explosion, this.transform.position, Quaternion.identity);
 			}
 		}
-	}
-	
-	void FixedUpdate()
-	{
 		
 	}
+	/*
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log(collision.gameObject.name);
+    }
 	
+	void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject.name);
+    }
+    */
+	//void ShowDeath
 }

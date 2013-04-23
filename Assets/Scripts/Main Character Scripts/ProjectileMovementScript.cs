@@ -26,7 +26,10 @@ public class ProjectileMovementScript : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision collision) {
 		if(collision.gameObject.tag == "Enemy")
+		{
+			collision.gameObject.GetComponent<EnemyBaseClass>().ShowDeath();
 			Destroy(collision.gameObject);
+		}
 		Destroy(this.gameObject);
     }
 }

@@ -48,4 +48,12 @@ public class CharacterMovement : MonoBehaviour {
 	    movement *= Time.deltaTime;
 	    controller.Move(movement);
 	}
+	
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log(collision.gameObject.name);
+    }
+	
+	void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject.name);
+    }
 }
