@@ -26,20 +26,16 @@ public class EnemyBehaviourLittle : EnemyBaseClass {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		
-		//transform.Translate(direction);
-		
-		//transform.position = new Vector3(Mathf.MoveTowards(transform.position.x, mainPlayerTarget.transform.position.x, speed * Time.deltaTime), transform.position.y, Mathf.MoveTowards(transform.position.z, mainPlayerTarget.transform.position.z, speed * Time.deltaTime));
 		if(keepTracking)
 		{
 			Quaternion newRotation = Quaternion.LookRotation(transform.position - mainPlayerTarget.transform.position, Vector3.forward);
 	    	newRotation.x = 0.0f;
 	    	newRotation.z = 0.0f;
-	    	transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * turnSpeed);
+	    	transform.rotation = Quaternion.Slerp(newRotation,transform.rotation, Time.deltaTime * turnSpeed);
 			direction = mainPlayerTarget.transform.position - this.transform.position;
 			if(direction.magnitude > 3  && direction.magnitude < 30)
 			{
+				transform.FindChild("Enemy_Little_Mesh").animation.Play("Take 001");
 				if(direction.magnitude < 8)
 				{
 					finalPosY = this.gameObject.transform.position.y;

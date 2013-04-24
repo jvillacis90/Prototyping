@@ -23,7 +23,7 @@ public class PlayerAttributes : MonoBehaviour{
 		if (damageState)
 		{
 			damageStateTimer += Time.deltaTime;
-			if(damageStateTimer > 2)
+			if(damageStateTimer > 1)
 			{
 				damageState = false;
 				damageStateTimer = 0;
