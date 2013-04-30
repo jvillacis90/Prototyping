@@ -9,7 +9,8 @@ public class EnemyBaseClass : MonoBehaviour {
 	public virtual void ShowDeath()
 	{
 		DestroyObject(this.gameObject);
-		Instantiate(deathParticle, this.transform.position, Quaternion.identity);
+		if(deathParticle != null)
+			Instantiate(deathParticle, this.transform.position, Quaternion.identity);
 	}
 	
 	public void SetDeathParticle(GameObject p)

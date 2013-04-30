@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class objectRenderingScript : MonoBehaviour {
-
+	float renderEnableTimer;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,7 +12,14 @@ public class objectRenderingScript : MonoBehaviour {
 	void Update () {
 		
 		if(!renderer.enabled)
-			renderer.enabled = true;
+		{
+			renderEnableTimer += Time.deltaTime;
+			if(renderEnableTimer > 1.5)
+			{
+				renderer.enabled = true;
+				renderEnableTimer = 0;
+			}
+		}
 	
 	}
 }

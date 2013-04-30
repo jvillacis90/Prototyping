@@ -24,7 +24,8 @@ public class CameraFollowScript : MonoBehaviour {
         hits = Physics.RaycastAll(transform.position,transform.forward,distance);
 		foreach(RaycastHit bam in hits)
 		{
-			bam.collider.renderer.enabled = false;
+			if(bam.collider.gameObject.tag == "Wall")
+				bam.collider.renderer.enabled = false;
 		}
 	}
 }

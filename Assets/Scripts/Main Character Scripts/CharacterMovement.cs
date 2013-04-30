@@ -49,7 +49,7 @@ public class CharacterMovement : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log(collision.gameObject.name);
+		//playerA.takeDamage();
     }
 	
 	void OnTriggerEnter(Collider other) {
