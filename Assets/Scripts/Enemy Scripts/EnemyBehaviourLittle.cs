@@ -33,7 +33,7 @@ public class EnemyBehaviourLittle : EnemyBaseClass {
 	    	newRotation.z = 0.0f;
 	    	transform.rotation = Quaternion.Slerp(newRotation,transform.rotation, Time.deltaTime * turnSpeed);
 			direction = mainPlayerTarget.transform.position - this.transform.position;
-			if(direction.magnitude > 3  && direction.magnitude < 30)
+			if(direction.magnitude > 3  && direction.magnitude < 20)
 			{
 				transform.FindChild("Enemy_Little_Mesh").animation.Play("Take 001");
 				if(direction.magnitude < 8)

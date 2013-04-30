@@ -9,10 +9,10 @@ public class CharacterMovement : MonoBehaviour {
 	PlayerAttributes playerA;
 	
 	//movement state variables
-	bool jumping;
+	public bool jumping;
 	float jumpTimer = 0;
 	
-	CharacterController controller;
+	public CharacterController controller;
 	// Use this for initialization
 	void Start () {
 		controller = this.GetComponent<CharacterController>();
@@ -33,7 +33,6 @@ public class CharacterMovement : MonoBehaviour {
 			jumping = false;
 			jumpTimer = 0;
 		}
-		
 		if(jumping)
 		{
 			if(jumpTimer <.1f)
